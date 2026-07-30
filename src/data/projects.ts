@@ -1,0 +1,176 @@
+import type { Project } from "@/types/project";
+
+const sharedCaseStudy = {
+  requirements: [
+    "Translate business requirements into clear frontend workflows",
+    "Create responsive layouts for desktop, tablet, and mobile users",
+    "Keep interfaces reusable, accessible, and easy for developers to maintain",
+  ],
+  users: ["Operations teams", "Business stakeholders", "End users", "Admin and dashboard users"],
+  informationArchitecture: ["Landing context", "Discovery flow", "Dashboard or listing view", "Detail screens", "Action and review states"],
+  designProcess: ["Requirement mapping", "User flow planning", "Wireframes", "High-fidelity UI", "Responsive refinements"],
+  frontendProcess: ["Component planning", "Reusable layouts", "Responsive styling", "Interaction states", "Developer handoff and iteration"],
+  responsiveStrategy: ["Mobile-first spacing", "Adaptive grids", "Readable data layouts", "Touch-friendly controls"],
+  screens: ["Dashboard", "Listing page", "Detail page", "Forms", "Responsive navigation"],
+  results: ["Clearer workflow structure", "Reusable frontend patterns", "Improved responsive experience"],
+  learnings: ["Complex products need simple information hierarchy", "Design-to-code quality improves when workflows are understood early"],
+};
+
+export const projects: Project[] = [
+  {
+    slug: "buildsync",
+    title: "BuildSync",
+    type: "Enterprise Construction Technology Platform",
+    role: "Frontend Developer and UI/UX Designer",
+    status: "Live Project",
+    duration: "Professional project",
+    team: "Cross-functional product and development team",
+    summary:
+      "BuildSync is an enterprise platform created for infrastructure and construction project management. It helps organizations manage complex workflows related to manpower, materials, machinery, project execution, approvals, tracking, and reporting.",
+    cardSummary:
+      "Supported frontend development and UI/UX design for an enterprise construction platform with dashboards, RFI workflows, material, machinery, approval, and reporting interfaces.",
+    problem:
+      "Construction operations involve dense workflows, role-based approvals, and fragmented data. The interface needed to simplify those operations into structured digital experiences.",
+    responsibilities: [
+      "Supported frontend development for web-based enterprise modules",
+      "Created responsive UI screens and dashboard interfaces",
+      "Converted UI designs into reusable frontend layouts",
+      "Designed user flows and workflow diagrams",
+      "Improved navigation and data visibility",
+      "Worked on material, machinery, RFI, and project-related interfaces",
+      "Created landing page interfaces",
+      "Worked closely with developers and stakeholders",
+      "Maintained consistency across web and mobile layouts",
+      "Helped simplify complex business processes through clear UI patterns",
+    ],
+    features: [
+      "Material Management",
+      "Machine Management",
+      "RFI Workflows",
+      "Project Tracking",
+      "Dashboard",
+      "Approval Workflows",
+      "Role-Based Interfaces",
+      "Reports and Data Tables",
+    ],
+    technologies: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Material UI", "HTML", "CSS", "Figma"],
+    liveUrl: "#",
+    githubUrl: "#",
+    accent: "#06B6D4",
+    banner: "Enterprise dashboards, approvals, and construction workflows",
+    caseStudy: {
+      ...sharedCaseStudy,
+      overview:
+        "The project focused on making complex construction workflows easier to understand and operate through responsive dashboards, structured navigation, and reusable UI patterns.",
+      challenges: ["Dense operational data", "Multiple role-based workflows", "Consistency across web and mobile layouts"],
+      solutions: ["Dashboard-first hierarchy", "Reusable modules", "Clear status, table, and approval patterns"],
+    },
+  },
+  {
+    slug: "all-about-packing",
+    title: "All About Packing",
+    label: "Freelance Project",
+    type: "Freelance E-commerce Project",
+    role: "Freelance Frontend Developer",
+    status: "Live and Ongoing",
+    duration: "Freelance engagement",
+    team: "Direct client collaboration",
+    summary:
+      "All About Packing is an e-commerce platform for packaging products. I worked on this project as a freelance frontend developer, building responsive frontend interfaces and transforming requirements and designs into functional web pages.",
+    cardSummary:
+      "Developed responsive frontend interfaces for All About Packing, an e-commerce platform for packaging products. Built reusable components, product listing pages, category browsing, filtering experiences, and mobile-friendly layouts while working directly with the client as a freelance frontend developer.",
+    problem:
+      "The platform needed clear product discovery, category browsing, filtering, and shopping-related layouts that worked smoothly across device sizes.",
+    responsibilities: [
+      "Developed responsive frontend pages",
+      "Converted UI designs into functional interfaces",
+      "Created reusable frontend components",
+      "Developed product listing pages",
+      "Built category browsing interfaces",
+      "Implemented product filtering experiences",
+      "Improved layout structure and visual hierarchy",
+      "Enhanced responsive behavior across devices",
+      "Worked directly with client requirements and feedback",
+      "Maintained consistency across desktop, tablet, and mobile",
+      "Focused on usability and scalable component development",
+    ],
+    features: [
+      "Product categories",
+      "Product listing",
+      "Product cards",
+      "Search interface",
+      "Product filtering",
+      "Responsive navigation",
+      "Shopping experience",
+      "Mobile-friendly layout",
+      "Reusable components",
+    ],
+    technologies: ["HTML5", "CSS3", "JavaScript", "React.js", "Next.js", "Tailwind CSS", "Material UI"],
+    liveUrl: "#",
+    githubUrl: "#",
+    accent: "#2563EB",
+    banner: "Responsive e-commerce discovery and product listing experience",
+    caseStudy: {
+      ...sharedCaseStudy,
+      overview:
+        "The project centered on converting client requirements into practical, responsive e-commerce pages for browsing packaging products.",
+      challenges: ["Consistent product cards", "Filtering UX across screens", "Client feedback cycles"],
+      solutions: ["Reusable listing components", "Mobile-friendly navigation", "Clear category and product hierarchy"],
+    },
+  },
+  {
+    slug: "infraforge-marketplace",
+    title: "InfraForge Marketplace",
+    label: "Marketplace Platform",
+    type: "B2B Marketplace Platform",
+    role: "Frontend Developer and UI/UX Designer",
+    status: "Ongoing",
+    duration: "Ongoing product work",
+    team: "Product, design, and frontend collaboration",
+    summary:
+      "InfraForge is a B2B marketplace for buying, selling, and renting construction equipment. The platform connects buyers, sellers, equipment owners, rental providers, and construction businesses through structured discovery and transaction workflows.",
+    cardSummary:
+      "Designed and supported responsive marketplace interfaces for buying, selling, and renting construction equipment with product discovery, dashboards, listing flows, and negotiation-related workflows.",
+    problem:
+      "Construction equipment workflows require trusted discovery, structured listings, rental requests, and seller-facing tools while staying approachable for mobile users.",
+    responsibilities: [
+      "Designed end-to-end user experiences",
+      "Created responsive marketplace interfaces",
+      "Built product discovery layouts",
+      "Designed buying, selling, and rental workflows",
+      "Created wireframes and high-fidelity interfaces",
+      "Worked on product listing experiences",
+      "Developed reusable frontend components",
+      "Created brand identity and design system elements",
+      "Supported responsive web and mobile implementation",
+      "Collaborated with developers for consistent implementation",
+    ],
+    features: [
+      "Buy equipment",
+      "Sell equipment",
+      "Rent equipment",
+      "Equipment listing",
+      "Search and discovery",
+      "Product detail pages",
+      "User dashboard",
+      "Seller dashboard",
+      "Rental requests",
+      "Negotiation flows",
+      "Responsive mobile experience",
+    ],
+    technologies: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Material UI", "Figma"],
+    liveUrl: "#",
+    githubUrl: "#",
+    accent: "#7C3AED",
+    banner: "B2B marketplace for construction equipment discovery and rental flows",
+    caseStudy: {
+      ...sharedCaseStudy,
+      overview:
+        "This ongoing marketplace work brings together frontend development and UI/UX design for equipment buying, selling, rental, and dashboard workflows.",
+      challenges: ["Multiple transaction paths", "Seller and buyer dashboard needs", "Marketplace trust and clarity"],
+      solutions: ["Separated user flows", "Structured listing cards", "Consistent responsive marketplace components"],
+    },
+  },
+];
+
+export const getProjectBySlug = (slug: string) => projects.find((project) => project.slug === slug);
