@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import { ArrowRight, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, Mail, Sparkles } from "lucide-react";
 import { FaReact, FaFigma, FaJsSquare, FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiMui } from "react-icons/si";
 import { socials } from "@/data/navigation";
@@ -50,17 +50,13 @@ export function Hero() {
           </p>
           <div className="hero-intro mt-8 flex flex-wrap gap-3">
             <MagneticButton href="#projects">View My Work <ArrowRight size={16} /></MagneticButton>
-            <MagneticButton href="/resume/Vaidehi-Jain-Resume.pdf" variant="ghost">Download Resume</MagneticButton>
+            <MagneticButton href="/resume/VaidehiJain-Resume.pdf" variant="ghost">Download Resume</MagneticButton>
             <MagneticButton href="#contact" variant="ghost">Contact Me</MagneticButton>
           </div>
           <div className="hero-intro mt-8 flex gap-3">
-            {[
-              ["LinkedIn", "https://www.linkedin.com/in/vaidehi-jain"],
-              ["GitHub", "https://github.com/Vaidehi6"],
-              ["Email", "mailto:vaidehijain03@gmail.com"],
-            ].map(([label, href]) => {
+            {socials.map(({ label, href }) => {
               return (
-                <Link key={label as string} href={href} aria-label={label as string} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/60 text-slate-800 transition hover:-translate-y-1 hover:border-accent/60 dark:bg-white/10 dark:text-white">
+                <Link key={label} href={href} aria-label={label} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/60 text-slate-800 transition hover:-translate-y-1 hover:border-accent/60 dark:bg-white/10 dark:text-white">
                   {label === "LinkedIn" && <FaLinkedin size={18} />}
                   {label === "GitHub" && <FaGithub size={18} />}
                   {label === "Email" && <Mail size={18} />}

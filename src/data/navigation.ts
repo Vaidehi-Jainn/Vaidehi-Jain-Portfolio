@@ -10,8 +10,7 @@ export const navigation: NavItem[] = [
 ];
 
 export const socials = [
-  { label: "LinkedIn", href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "#" },
-  { label: "GitHub", href: process.env.NEXT_PUBLIC_GITHUB_URL || "#" },
-  { label: "Email", href: "mailto:vaidehijain03@gmail.com" },
-  { label: "Portfolio", href: process.env.NEXT_PUBLIC_PORTFOLIO_URL || "#" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/vaidehi-jain" },
+  { label: "GitHub", href: "https://github.com/Vaidehi-Jainn" },
+  { label: "Email", href: "mailto:vaidehijain.work@gmail.com" },
 ];

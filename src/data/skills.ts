@@ -14,21 +14,15 @@ export const skillCategories: SkillCategory[] = [
       "Material UI",
       "Bootstrap",
       "Responsive Design",
-      "Component-Based Development",
       "API Integration",
-      "State Management",
-      "Cross-Browser Compatibility",
     ].map((name, index) => ({ name, level: index < 8 ? "Proficient" : "Working Knowledge" })),
   },
   {
-    title: "UI/UX and Design",
+    title: "Visual Design",
     skills: [
       "Figma",
       "Prototyping",
-      "Responsive UI Design",
-      "Adobe Photoshop",
       "Canva",
-      "Spline",
       "PowerPoint Presentation"
     ].map((name, index) => ({ name, level: index < 10 ? "Experienced" : "Working Knowledge" })),
   },

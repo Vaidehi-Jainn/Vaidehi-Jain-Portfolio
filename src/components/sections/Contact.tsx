@@ -1,31 +1,18 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Download, Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { validateContactForm, type ContactFormState } from "@/lib/validations";
 import { sendContactMessage } from "@/services/contactService";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { MagneticButton } from "@/components/ui/MagneticButton";
 import { Section } from "@/components/ui/Section";
 
 const initialState: ContactFormState = {
   name: "",
   email: "",
-  subject: "",
-  projectType: "",
+  phone: "",
   message: "",
 };
-
-const projectTypes = [
-  "Frontend Development",
-  "React Development",
-  "Next.js Development",
-  "Freelance Project",
-  "UI Implementation",
-  "UI/UX Design",
-  "Job Opportunity",
-  "Collaboration",
-];
 
 export function ResumeContact() {
   const [values, setValues] = useState(initialState);
@@ -49,42 +36,27 @@ export function ResumeContact() {
   };
 
   return (
-    <>
-      <Section eyebrow="Resume" title="Interested in my experience and technical background?">
-        <GlassCard className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
-          <p className="max-w-2xl text-slate-600 dark:text-slate-300">View or download the resume placeholder. Replace the PDF in public/resume when the final resume is ready.</p>
-          <div className="flex flex-wrap gap-3">
-            <MagneticButton href="/resume/Vaidehi-Jain-Resume.pdf" variant="ghost">View Resume</MagneticButton>
-            <MagneticButton href="/resume/Vaidehi-Jain-Resume.pdf"><Download size={16} /> Download Resume</MagneticButton>
-            <MagneticButton href="#contact" variant="ghost">Contact Me</MagneticButton>
+    <Section id="contact" eyebrow="Contact" title="Let's build something meaningful." description="I'm open to frontend development opportunities, freelance projects, collaborative work, and roles where development and thoughtful design come together.">
+        <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
+          <div className="grid content-start gap-4">
+            <GlassCard className="p-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Get in touch</p>
+              <h3 className="mt-3 font-display text-3xl font-semibold text-slate-950 dark:text-white">Vaidehi Jain</h3>
+            </GlassCard>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              <ContactTile href="mailto:vaidehijain.work@gmail.com" icon={<Mail size={18} />} label="Email" value="vaidehijain.work@gmail.com" />
+              <ContactTile icon={<Phone size={18} />} label="Phone" value="+91 8824633438" />
+              <ContactTile icon={<MapPin size={18} />} label="Location" value="Jaipur, Rajasthan, India" />
+            </div>
           </div>
-        </GlassCard>
-      </Section>
-      <Section id="contact" eyebrow="Contact" title="Let's build something meaningful." description="I'm open to frontend development opportunities, freelance projects, collaborative work, and roles where development and thoughtful design come together.">
-        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <GlassCard>
-            <h3 className="font-display text-2xl font-semibold text-slate-950 dark:text-white">Vaidehi Jain</h3>
-            <div className="mt-6 space-y-4 text-slate-600 dark:text-slate-300">
-              <p className="flex items-center gap-3"><Mail className="text-primary" size={18} /> <a href="mailto:vaidehijain03@gmail.com">vaidehijain03@gmail.com</a></p>
-              <p className="flex items-center gap-3"><MapPin className="text-primary" size={18} /> Jaipur, Rajasthan, India</p>
-            </div>
-            <div className="mt-8 rounded-2xl border border-dashed border-slate-300 p-4 text-sm text-slate-500 dark:border-white/15 dark:text-slate-400">
-              LinkedIn, GitHub, and portfolio URLs are currently placeholders in environment variables.
-            </div>
-          </GlassCard>
-          <GlassCard>
+
+          <GlassCard className="p-5 sm:p-6">
             <form onSubmit={submit} className="grid gap-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field label="Name" error={errors.name}><input value={values.name} onChange={(e) => update("name", e.target.value)} className="input" placeholder="Your name" /></Field>
-                <Field label="Email" error={errors.email}><input value={values.email} onChange={(e) => update("email", e.target.value)} className="input" placeholder="you@example.com" /></Field>
+                <Field label="Email" error={errors.email}><input value={values.email} onChange={(e) => update("email", e.target.value)} className="input" placeholder="Your email" /></Field>
               </div>
-              <Field label="Subject" error={errors.subject}><input value={values.subject} onChange={(e) => update("subject", e.target.value)} className="input" placeholder="Opportunity, project, or collaboration" /></Field>
-              <Field label="Project type" error={errors.projectType}>
-                <select value={values.projectType} onChange={(e) => update("projectType", e.target.value)} className="input">
-                  <option value="">Select a project type</option>
-                  {projectTypes.map((type) => <option key={type} value={type}>{type}</option>)}
-                </select>
-              </Field>
+              <Field label="Mobile Number" error={errors.phone}><input value={values.phone} onChange={(e) => update("phone", e.target.value)} className="input" placeholder="Your number" /></Field>
               <Field label="Message" error={errors.message}><textarea value={values.message} onChange={(e) => update("message", e.target.value)} className="input min-h-36 resize-y" placeholder="Tell me what you would like to build..." /></Field>
               <button disabled={status === "loading"} className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 font-semibold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:text-slate-950">
                 <Send size={17} /> {status === "loading" ? "Sending..." : "Submit"}
@@ -95,8 +67,21 @@ export function ResumeContact() {
           </GlassCard>
         </div>
       </Section>
-    </>
   );
+}
+
+function ContactTile({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
+  const content = (
+    <div className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white/75 p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-accent/40 dark:border-white/10 dark:bg-white/[0.055]">
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">{icon}</span>
+      <span>
+        <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">{label}</span>
+        <span className="mt-1 block break-all text-sm font-semibold text-slate-800 dark:text-slate-100">{value}</span>
+      </span>
+    </div>
+  );
+
+  return href ? <a href={href}>{content}</a> : content;
 }
 
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {

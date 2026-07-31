@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function LoadingScreen() {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(1);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
@@ -31,7 +31,12 @@ export function LoadingScreen() {
             </motion.div>
             <p className="mb-4 font-mono text-sm text-cyan-200">loading interface {progress}%</p>
             <div className="h-1 overflow-hidden rounded-full bg-white/10">
-              <motion.div className="h-full bg-gradient-to-r from-primary via-accent to-secondary" animate={{ width: `${progress}%` }} />
+              <motion.div
+                className="h-full bg-gradient-to-r from-primary via-accent to-secondary"
+                initial={{ width: "1%" }}
+                animate={{ width: `${progress}%` }}
+                style={{ width: `${progress}%` }}
+              />
             </div>
           </div>
         </motion.div>

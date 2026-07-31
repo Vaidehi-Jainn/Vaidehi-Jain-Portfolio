@@ -71,7 +71,7 @@ UI files use `.tsx`. Data, services, types, hooks, and utility files use `.ts` w
 Place the final resume PDF at:
 
 ```text
-public/resume/Vaidehi-Jain-Resume.pdf
+public/resume/VaidehiJain-Resume.pdf
 ```
 
 ## Environment Variables
@@ -80,7 +80,7 @@ Copy `.env.example` to `.env.local` and update placeholder URLs.
 
 ```bash
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/your-profile
-NEXT_PUBLIC_GITHUB_URL=https://github.com/your-username
+NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/vaidehi-jain
+NEXT_PUBLIC_GITHUB_URL=https://github.com/Vaidehi-Jainn
 NEXT_PUBLIC_PORTFOLIO_URL=https://your-portfolio-url.com
 ```

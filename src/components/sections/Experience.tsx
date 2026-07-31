@@ -10,7 +10,7 @@ export function Experience() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <Section id="experience" eyebrow="Experience" title="Professional timeline." description="Enterprise product work, UI/UX execution, frontend support, and stakeholder-facing design communication.">
+    <Section id="experience" eyebrow="Experience" title="Professional timeline." description="Where I have worked, the roles I have contributed to, and how I have grown as a frontend developer.">
       <div className="relative grid gap-5 before:absolute before:left-5 before:top-6 before:h-[calc(100%-3rem)] before:w-px before:bg-gradient-to-b before:from-primary before:via-accent before:to-secondary md:before:left-1/2">
         {experience.map((item, index) => {
           const isOpen = open === index;

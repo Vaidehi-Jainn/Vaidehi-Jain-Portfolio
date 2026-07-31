@@ -19,8 +19,7 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-5 border-t border-slate-200 pt-6 text-sm text-slate-600 dark:border-white/10 dark:text-slate-300 md:flex-row md:items-center">
-          <p>Designed and developed with React, Next.js, and a love for thoughtful digital experiences. © {new Date().getFullYear()}</p>
+        <div className="flex justify-end border-t border-slate-200 pt-6 text-sm text-slate-600 dark:border-white/10 dark:text-slate-300">
           <div className="flex items-center gap-4">
             {socials.map((social) => (
               <Link key={social.label} href={social.href} className="hover:text-primary">

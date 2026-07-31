@@ -30,14 +30,14 @@ const highlights = [
 const profileDetails = [
   {
     label: "Email",
-    value: "vaidehijain03@gmail.com",
-    href: "mailto:vaidehijain03@gmail.com",
+    value: "vaidehijain.work@gmail.com",
+    href: "mailto:vaidehijain.work@gmail.com",
     Icon: Mail,
   },
   {
     label: "Phone",
-    value: "8824633438",
-    href: "tel:8824633438",
+    value: "+91 8824633438",
+    href: "tel:+91 8824633438",
     Icon: Phone,
   },
   {
@@ -49,11 +49,11 @@ const profileDetails = [
 
 export function About() {
   return (
-    <Section id="about" eyebrow="About" title="Frontend craft with design fluency." description="I turn product workflows and visual systems into responsive, practical, and polished interfaces.">
+    <Section id="about" eyebrow="About" title="Frontend craft with design fluency." description="I transform ideas and designs into practical, responsive interfaces that feel smooth and intuitive.">
       <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
         <Reveal>
           <GlassCard className="gradient-border h-full">
-            <div className="mb-6 inline-flex rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">Available for frontend roles and freelance work</div>
+            <div className="mb-6 inline-flex rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">Available for frontend opportunities and freelance work</div>
             <p className="text-lg leading-8 text-slate-700 dark:text-slate-200">
               I&apos;m a Frontend Developer specializing in Next.js and React, with a passion for building responsive, high-performance, and user-centric web applications. I combine development skills with a working knowledge of Figma to bridge the gap between design and implementation, ensuring seamless user experiences. I enjoy solving real-world challenges through clean, maintainable code and continuously expanding my expertise in modern frontend technologies, Visual Design, and development best practices. I&apos;m always eager to learn, collaborate, and contribute to building digital products that are both functional and visually impactful.
             </p>
@@ -100,17 +100,21 @@ export function About() {
               </div>
             </GlassCard>
           </Reveal>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {highlights.map(({ title, description, Icon }) => (
-              <Reveal key={title}>
-                <GlassCard className="group min-h-40 p-5">
-                  <Icon className="mb-4 text-primary transition group-hover:scale-110" size={26} />
-                  <h3 className="font-display text-lg font-semibold text-slate-950 dark:text-white">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{description}</p>
-                </GlassCard>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {highlights.map(({ title, description, Icon }) => (
+                <div key={title} className="group rounded-lg border border-slate-200 bg-white/60 p-4 transition hover:-translate-y-1 hover:border-primary/40 hover:bg-white/90 dark:border-white/10 dark:bg-white/[0.045] dark:hover:bg-white/[0.075]">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-white">
+                      <Icon size={20} />
+                    </span>
+                    <h3 className="font-display text-lg font-semibold leading-6 text-slate-950 dark:text-white">{title}</h3>
+                  </div>
+                  <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">{description}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </div>
     </Section>
