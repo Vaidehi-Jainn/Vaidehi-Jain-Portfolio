@@ -18,8 +18,20 @@ export function ResumeContact() {
   const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormState, string>>>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
-  const update = (field: keyof ContactFormState, value: string) => setValues((current) => ({ ...current, [field]: value }));
+  const update = (field: keyof ContactFormState, value: string) => {
+    setValues((current) => ({ ...current, [field]: value }));
+    setErrors((current) => {
+      if (!current[field]) return current;
+      const remaining = { ...current };
+      delete remaining[field];
+      return remaining;
+    });
+    if (status === "error" && !statusMessage) {
+      setStatus("idle");
+    }
+  };
 
   const submit = async (event: FormEvent) => {
     event.preventDefault();
@@ -27,12 +39,20 @@ export function ResumeContact() {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) {
       setStatus("error");
+      setStatusMessage("");
       return;
     }
     setStatus("loading");
-    await sendContactMessage(values);
-    setStatus("success");
-    setValues(initialState);
+    setStatusMessage("");
+    try {
+      const result = await sendContactMessage(values);
+      setStatus("success");
+      setStatusMessage(result.message);
+      setValues(initialState);
+    } catch (error) {
+      setStatus("error");
+      setStatusMessage(error instanceof Error ? error.message : "Message could not be sent.");
+    }
   };
 
   return (
@@ -61,8 +81,8 @@ export function ResumeContact() {
               <button disabled={status === "loading"} className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 font-semibold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:text-slate-950">
                 <Send size={17} /> {status === "loading" ? "Sending..." : "Submit"}
               </button>
-              {status === "success" ? <p className="text-sm font-semibold text-emerald-500">Message validated successfully. Connect this form to an API or email service when ready.</p> : null}
-              {status === "error" ? <p className="text-sm font-semibold text-red-500">Please fix the highlighted fields.</p> : null}
+              {status === "success" ? <p className="text-sm font-semibold text-emerald-500">{statusMessage}</p> : null}
+              {status === "error" && statusMessage ? <p className="text-sm font-semibold text-red-500">{statusMessage}</p> : null}
             </form>
           </GlassCard>
         </div>
@@ -89,7 +109,7 @@ function Field({ label, error, children }: { label: string; error?: string; chil
     <label className="grid gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
       {label}
       {children}
-      {error ? <span className="text-xs text-red-500">{error}</span> : null}
+      <span className="min-h-4 text-xs text-red-500">{error ?? ""}</span>
     </label>
   );
 }

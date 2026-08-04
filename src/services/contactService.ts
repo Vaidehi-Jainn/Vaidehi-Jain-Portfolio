@@ -1,10 +1,19 @@
 import type { ContactFormState } from "@/lib/validations";
 
 export async function sendContactMessage(values: ContactFormState) {
-  await new Promise((resolve) => window.setTimeout(resolve, 700));
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(values),
+  });
 
-  return {
-    ok: true,
-    message: `Thanks ${values.name}. Connect this service to an API or email provider when ready.`,
-  };
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error(result.message ?? "Message could not be sent.");
+  }
+
+  return result as { ok: true; message: string };
 }

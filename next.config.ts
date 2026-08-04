@@ -1,18 +1,20 @@
 import type { NextConfig } from "next";
 
 const repoName = "Vaidehi-Jain-Portfolio";
+const isGitHubPagesBuild = process.env.GITHUB_PAGES === "true";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
-  // Generate static HTML files inside the "out" folder
-  output: "export",
+  ...(isGitHubPagesBuild
+    ? {
+        // Generate static HTML files inside the "out" folder for GitHub Pages.
+        output: "export" as const,
+        basePath: `/${repoName}`,
+        assetPrefix: `/${repoName}/`,
+      }
+    : {}),
 
-  // Required because GitHub Pages hosts the site under the repository name
-  basePath: `/${repoName}`,
-  assetPrefix: `/${repoName}/`,
-
-  // GitHub Pages cannot run Next.js image optimization
   images: {
     unoptimized: true,
   },
