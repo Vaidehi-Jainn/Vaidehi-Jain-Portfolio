@@ -21,16 +21,22 @@ export const skillCategories: SkillCategory[] = [
     title: "Visual Design",
     skills: [
       "Figma",
-      "Prototyping",
       "Canva",
       "PowerPoint Presentation"
     ].map((name, index) => ({ name, level: index < 10 ? "Experienced" : "Working Knowledge" })),
   },
   {
-    title: "Development Tools",
-    skills: ["Git", "GitHub", "VS Code", "Postman"].map((name) => ({
+    title: "Databases",
+    skills: ["MySQL", "MongoDB"].map((name) => ({
       name,
-      level: "Proficient",
+      level: "Working Knowledge",
+    })),
+  },
+  {
+    title: "DevOps & Workflow",
+    skills: ["Git", "GitHub", "GitHub Actions", "CI/CD", "Agile/Scrum", "VS Code", "Postman"].map((name) => ({
+      name,
+      level: name === "Git" || name === "GitHub" ? "Proficient" : "Working Knowledge",
     })),
   },
 ];
@@ -47,6 +53,11 @@ export const marqueeTech = [
   "Bootstrap",
   "Git",
   "GitHub",
+  "GitHub Actions",
+  "CI/CD",
+  "Agile/Scrum",
+  "MySQL",
+  "MongoDB",
   "Figma",
   "VS Code",
 ];

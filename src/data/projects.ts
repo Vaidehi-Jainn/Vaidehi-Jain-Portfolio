@@ -19,7 +19,7 @@ export const projects: Project[] = [
       "Reports and Data Tables",
     ],
     technologies: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Material UI"],
-    liveUrl: "https://web-uat.buildsync.net/",
+    liveUrl: "https://buildsync.net/",
     accent: "#06B6D4",
   },
   {

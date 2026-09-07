@@ -22,7 +22,7 @@ export function Footer() {
         <div className="flex justify-end border-t border-slate-200 pt-6 text-sm text-slate-600 dark:border-white/10 dark:text-slate-300">
           <div className="flex items-center gap-4">
             {socials.map((social) => (
-              <Link key={social.label} href={social.href} className="hover:text-primary">
+              <Link key={social.label} href={social.href} target={social.href.startsWith("http") ? "_blank" : undefined} rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined} className="hover:text-primary">
                 {social.label}
               </Link>
             ))}

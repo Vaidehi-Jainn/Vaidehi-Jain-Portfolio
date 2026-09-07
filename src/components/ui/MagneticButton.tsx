@@ -10,9 +10,11 @@ type MagneticButtonProps = {
   children: ReactNode;
   variant?: "primary" | "ghost";
   className?: string;
+  target?: string;
+  rel?: string;
 };
 
-export function MagneticButton({ href, children, variant = "primary", className }: MagneticButtonProps) {
+export function MagneticButton({ href, children, variant = "primary", className, target, rel }: MagneticButtonProps) {
   const styles =
     variant === "primary"
       ? "bg-white text-slate-950 hover:bg-cyan-100 dark:bg-white"
@@ -23,5 +25,5 @@ export function MagneticButton({ href, children, variant = "primary", className 
     </motion.span>
   );
 
-  return href ? <Link href={href}>{content}</Link> : content;
+  return href ? <Link href={href} target={target} rel={rel}>{content}</Link> : content;
 }

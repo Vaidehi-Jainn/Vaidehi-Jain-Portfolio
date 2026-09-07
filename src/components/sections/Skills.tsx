@@ -4,8 +4,8 @@ import { useState } from "react";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import type { IconType } from "react-icons";
 import { FaBootstrap, FaCss3Alt, FaGithub, FaReact } from "react-icons/fa";
-import { SiCanvas, SiFigma, SiGit, SiHtml5, SiJavascript, SiMui, SiNextdotjs, SiPostman, SiTailwindcss, SiTypescript } from "react-icons/si";
-import { Blocks, Brush, Code2, FileText, Globe2, MonitorSmartphone, Plug, Waypoints } from "lucide-react";
+import { SiCanvas, SiFigma, SiGit, SiGithubactions, SiHtml5, SiJavascript, SiMongodb, SiMui, SiMysql, SiNextdotjs, SiPostman, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { Blocks, Brush, Code2, FileText, Globe2, MonitorSmartphone, Plug, RefreshCw, Users, Waypoints } from "lucide-react";
 import { skillCategories } from "@/data/skills";
 import { Reveal } from "@/components/common/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -35,6 +35,11 @@ const skillIcons: Record<string, IconType | typeof Code2> = {
   "PowerPoint Presentation": FileText,
   Git: SiGit,
   GitHub: FaGithub,
+  "GitHub Actions": SiGithubactions,
+  "CI/CD": RefreshCw,
+  "Agile/Scrum": Users,
+  MySQL: SiMysql,
+  MongoDB: SiMongodb,
   "VS Code": Code2,
   Postman: SiPostman,
 };

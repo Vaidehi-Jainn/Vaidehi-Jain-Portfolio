@@ -38,7 +38,7 @@ export function Projects() {
 
                   <div className={`mt-6 flex items-center justify-between gap-4 ${index === 1 ? "sm:flex-row-reverse" : ""}`}>
                     <div className="hidden h-px flex-1 bg-slate-200 dark:bg-white/10 sm:block" />
-                    <Link href={project.liveUrl} className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 dark:bg-white dark:text-slate-950"><ArrowUpRight size={16} /> View Project</Link>
+                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 dark:bg-white dark:text-slate-950"><ArrowUpRight size={16} /> View Project</Link>
                   </div>
                 </div>
               </div>

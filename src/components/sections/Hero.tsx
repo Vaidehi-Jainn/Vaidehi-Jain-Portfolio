@@ -30,7 +30,7 @@ export function Hero() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 pb-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         <div>
           <p className="hero-intro mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/70 px-4 py-2 text-sm font-medium text-slate-700 backdrop-blur dark:bg-white/10 dark:text-cyan-100">
-            <Sparkles size={16} /> Frontend Developer + UI Designer
+            <Sparkles size={16} /> Frontend Developer
           </p>
           <h1 className="hero-intro font-display text-4xl font-semibold leading-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl">
             Hi, I&apos;m Vaidehi Jain
@@ -50,13 +50,13 @@ export function Hero() {
           </p>
           <div className="hero-intro mt-8 flex flex-wrap gap-3">
             <MagneticButton href="#projects">View My Work <ArrowRight size={16} /></MagneticButton>
-            <MagneticButton href="/resume/VaidehiJain-Resume.pdf" variant="ghost">Download Resume</MagneticButton>
+            <MagneticButton href="/resume/VaidehiJain-Resume.pdf" variant="ghost" target="_blank" rel="noopener noreferrer">Download Resume</MagneticButton>
             <MagneticButton href="#contact" variant="ghost">Contact Me</MagneticButton>
           </div>
           <div className="hero-intro mt-8 flex gap-3">
             {socials.map(({ label, href }) => {
               return (
-                <Link key={label} href={href} aria-label={label} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/60 text-slate-800 transition hover:-translate-y-1 hover:border-accent/60 dark:bg-white/10 dark:text-white">
+                <Link key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} aria-label={label} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/60 text-slate-800 transition hover:-translate-y-1 hover:border-accent/60 dark:bg-white/10 dark:text-white">
                   {label === "LinkedIn" && <FaLinkedin size={18} />}
                   {label === "GitHub" && <FaGithub size={18} />}
                   {label === "Email" && <Mail size={18} />}
